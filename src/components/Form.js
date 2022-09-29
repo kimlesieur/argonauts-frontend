@@ -19,9 +19,6 @@ const Form = () => {
     const addMember = async () => {
       if(valid){
         await saveMember(name)
-        .then(data => {
-          console.log(data);
-        });
       }
       return null;
     };

@@ -1,15 +1,12 @@
 import {ENV} from '../config.js';
 
 export const getList = async () => {
-
-    return await fetch('https://jason-argonauts.herokuapp.com/argonautes')
+    return await fetch(ENV.API_URL)
     .then(response => response.json());
-    
 }
 
 export const saveMember = async (name) => {
-    console.log(name);
-    return await fetch('https://jason-argonauts.herokuapp.com/argonautes', {
+    return await fetch(ENV.API_URL, {
         method: "POST",
         body: JSON.stringify({
             name: name,
