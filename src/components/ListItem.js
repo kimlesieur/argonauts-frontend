@@ -1,9 +1,9 @@
 
 const ListItem = ({name, id}) => {
     return (
-            <div className="member-item">
-                {name}
-            </div>
+        <div className="member-item">
+            {name}
+        </div>
     )
 }
 

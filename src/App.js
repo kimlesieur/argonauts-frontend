@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { getList, saveMember } from './api/index.js';
+import { getList } from './api/index.js';
 import List from './components/List';
 import Form from './components/Form';
 
@@ -11,7 +11,7 @@ const App = () => {
     await getList()
       .then(data => {
         setMarins(data)
-      })
+      });
   };
 
   useEffect(() => {
@@ -26,12 +26,10 @@ const App = () => {
           Les Argonautes
         </h1>
       </header>
-
       <main>
         <Form />
         <List marins={marins} />
       </main>
-      
       <footer>
         <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
       </footer>

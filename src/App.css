@@ -38,9 +38,6 @@ label {
   text-align: center;
 }
 
-.member-item {
-  padding: 0.25em 0;
-}
 
 footer {
   margin-top: 2em;
@@ -48,4 +45,18 @@ footer {
   color: #fff;
   background: #f76c6c;
   padding: 0.25em 0;
+}
+
+/* Utilities */
+
+.warning-error {
+  width: 50%;
+  margin : 1vw auto;
+  padding: 1vw;
+  color: white;
+  background: rgba(241, 112, 112, 0.7);
+}
+
+.warning-error > p {
+ margin: 0;
 }
