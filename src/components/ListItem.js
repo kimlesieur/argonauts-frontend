@@ -1,8 +1,8 @@
 
-const ListItem = ({marin}) => {
+const ListItem = ({name, id}) => {
     return (
-            <div className="member-item" key={marin.id}>
-                {marin.name}
+            <div className="member-item">
+                {name}
             </div>
     )
 }
