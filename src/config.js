@@ -1,3 +1,3 @@
 export const ENV = {
-    DB_PASSWD: process.env.REACT_APP_DB_PASSWD,
+    API_URL: process.env.API_URL,
 };

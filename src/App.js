@@ -1,7 +1,30 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-import {ENV} from './config.js';
+import { getList, saveMember } from './api/index.js';
+import List from './components/List';
 
-function App() {
+const App = () => {
+  const [marins, setMarins] = useState([]);
+  const [name, setName] = useState("");
+
+  const fetchData = async () => {
+    await getList()
+      .then(data => {
+        setMarins(data)
+      })
+  };
+
+  const addMember = async () => {
+    await saveMember(name)
+    .then(data => {
+      alert(`Bravo ${name}, vous êtes engagé !`);
+    });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
       <header>
@@ -13,18 +36,14 @@ function App() {
 
         <main>
           <h2>Ajouter un(e) Argonaute</h2>
-          <form className="new-member-form">
+          <form className="new-member-form" onSubmit={() => {(addMember())}}>
             <label htmlFor="name">Nom de l&apos;Argonaute</label>
-            <input id="name" name="name" type="text" placeholder="Charalampos" />
+            <input id="name" name="name" type="text" placeholder="Charalampos" onChange={(e) => setName(e.target.value)} />
             <button type="submit">Envoyer</button>
           </form>
 
           <h2>Membres de l'équipage</h2>
-          <section className="member-list">
-            <div className="member-item">Eleftheria</div>
-            <div className="member-item">Gennadios</div>
-            <div className="member-item">Lysimachos</div>
-          </section>
+          <List marins={marins} />
         </main>
         
         <footer>
