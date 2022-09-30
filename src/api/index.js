@@ -1,13 +1,14 @@
 import {ENV} from '../config.js';
 import axios from 'axios';
 
-const apiUrl = ENV.NODE_ENV === "production" ? ENV.API_URL : ENV.TEST_URL;
+const apiUrl = ENV.PRODUCTION === "production" ? ENV.API_URL : ENV.TEST_URL;
 
 export const getList = async () => {
     return await axios.get(apiUrl)
     .then(response => response.data)
     .catch(err => console.log(err));
 }
+
 
 export const saveMember = async (name) => {
 
