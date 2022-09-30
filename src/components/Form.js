@@ -2,7 +2,7 @@ import { useState } from "react";
 import { saveMember } from '../api/index.js';
 import * as Yup from 'yup';
 
-const Form = () => {
+const Form = ({setFeedback}) => {
     const [name, setName] = useState("");
     const [valid, setValid] = useState(false);
 
@@ -16,9 +16,13 @@ const Form = () => {
       setName(name);
     }
 
-    const addMember = async () => {
+    const handleSubmit = async (e) => {
+      e.preventDefault();
       if(valid){
-        await saveMember(name)
+        await saveMember(name);
+        setName("");
+        setValid(false);
+        setFeedback(true);
       }
       return null;
     };
@@ -26,11 +30,11 @@ const Form = () => {
     return (
         <>
         <h2>Ajouter un(e) Argonaute</h2>
-        <form className="new-member-form" onSubmit={() => {(addMember())}}>
+        <form className="new-member-form" onSubmit={e => handleSubmit(e)}>
             <label htmlFor="name">Nom de l&apos;Argonaute</label>
-            <input id="name" name="name" type="text" placeholder="Charalampos" onChange={e => handleInput(e)} />
+            <input id="name" name="name" type="text" placeholder="Charalampos" onChange={e => handleInput(e)} value={name} />
             <button type="submit">Envoyer</button>
-            {!valid && <div className="warning-error"><p>Indiquer votre nom, de 3 à 50 lettres maximum.</p></div>}
+            {!valid && <div className="message-error"><p>3 à 50 lettres max, pas de caractères spéciaux.</p></div>}
         </form>
         </>
     )

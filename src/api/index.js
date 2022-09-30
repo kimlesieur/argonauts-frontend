@@ -1,12 +1,19 @@
 import {ENV} from '../config.js';
+import axios from 'axios';
+
+const apiUrl = ENV.NODE_ENV === "production" ? ENV.API_URL : ENV.TEST_URL;
 
 export const getList = async () => {
-    return await fetch(ENV.API_URL)
-    .then(response => response.json());
+    return await axios.get(apiUrl)
+    .then(response => response.data)
+    .catch(err => console.log(err));
 }
 
 export const saveMember = async (name) => {
-    return await fetch(ENV.API_URL, {
+
+    //TODO : change for axios
+    
+    return await fetch(apiUrl, {
         method: "POST",
         body: JSON.stringify({
             name: name,
@@ -17,4 +24,5 @@ export const saveMember = async (name) => {
     })
     .then(response => response.json());
 }
+
 

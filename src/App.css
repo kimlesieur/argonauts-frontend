@@ -3,6 +3,7 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  font-size: 18px;
 }
 
 main {
@@ -34,7 +35,7 @@ label {
 }
 
 .new-member-form {
-  margin: 2em 0 4em 0;
+  margin: 1em 0 1em 0;
   text-align: center;
 }
 
@@ -64,14 +65,28 @@ footer {
 
 /* Utilities */
 
-.warning-error {
+.message-error {
   width: 50%;
   margin : 1vw auto;
-  padding: 1vw;
-  color: white;
-  background: rgba(241, 112, 112, 0.7);
+  color: rgba(241, 112, 112, 1);
 }
 
-.warning-error > p {
- margin: 0;
+.message-error > p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.message-success {
+  width: 50%;
+  margin : 1.5vw auto;
+  padding: 0.5vw;
+  color: white;
+  background: rgba(3, 111, 46, 0.7);
+  border-radius: 50px;
+}
+
+.message-success > p {
+  text-align: center;
+  font-size: 1rem;
+  margin: 0;
 }

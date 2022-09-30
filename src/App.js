@@ -6,17 +6,11 @@ import Form from './components/Form';
 
 const App = () => {
   const [marins, setMarins] = useState([]);
-
-  const fetchData = async () => {
-    await getList()
-      .then(data => {
-        setMarins(data)
-      });
-  };
+  const [feedback, setFeedback] = useState(false);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    getList().then(data => setMarins(data));
+  }, [feedback]);
 
   return (
     <div className="App">
@@ -27,8 +21,9 @@ const App = () => {
         </h1>
       </header>
       <main>
-        <Form />
-        <List marins={marins} />
+        <Form setFeedback={setFeedback} />
+        {feedback && <div className="message-success"><p>Marin enrôlé !</p></div>}
+        {marins && <List marins={marins} />}
       </main>
       <footer>
         <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
