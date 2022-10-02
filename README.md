@@ -6,7 +6,7 @@ You can find the associated backend API on this repo :  [Argonauts Backend](http
 
 ## How to run this project ? 
 
-To run the project, clone this repo and the [backend API](https://github.com/kimlesieur/argonauts-backend).
+To run the project, clone this repo and the [backend API](https://github.com/kimlesieur/argonauts-backend).  
     1. Install depedencies with `npm i`  
     2. Run both the backend and the frontend with `npm start`.  
     3. Don't forget to customize your environment variables in the .env files !  

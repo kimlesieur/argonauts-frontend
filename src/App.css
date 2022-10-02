@@ -90,3 +90,30 @@ footer {
   font-size: 1rem;
   margin: 0;
 }
+
+.message-error-data {
+  width: 50%;
+  margin : 1vw auto;
+  background-color: rgb(162, 0, 0);
+}
+
+.message-error-data > p {
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 1rem;
+}
+
+
+/* Smaller screen */ 
+
+@media screen and (max-width: 450px){ 
+
+  html,body {min-width:400px} 
+
+  body {
+    font-size: 14px;
+  }
+
+}

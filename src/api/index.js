@@ -4,8 +4,7 @@ const apiUrl = ENV.PRODUCTION === "production" ? ENV.API_URL : ENV.TEST_URL;
 
 export const getList = async () => {
     return await fetch(apiUrl)
-    .then(res => res.json())
-    .catch(err => console.log(err));
+    .then(res => res.json());
 }
 
 export const saveMember = async (name) => {

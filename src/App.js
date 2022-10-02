@@ -7,9 +7,15 @@ import Form from './components/Form';
 const App = () => {
   const [marins, setMarins] = useState([]);
   const [feedback, setFeedback] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    getList().then(data => setMarins(data));
+    getList()
+    .then(data => setMarins(data))
+    .catch(err => {
+      console.log(err);
+      setError(true);
+    })
   }, [feedback]);
 
   return (
@@ -23,6 +29,7 @@ const App = () => {
       <main>
         <Form setFeedback={setFeedback} />
         {feedback && <div className="message-success"><p>Marin enrôlé !</p></div>}
+        {error && <div className="message-error-data"><p>Erreur lors du chargement des données</p></div>}
         {marins && <List marins={marins} />}
       </main>
       <footer>

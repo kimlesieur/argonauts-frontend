@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 const Form = ({setFeedback}) => {
     const [name, setName] = useState("");
     const [valid, setValid] = useState(false);
+    const [error, setError] = useState(false);
 
     const validationSchema = Yup.object().shape({
       name: Yup.string().min(2).max(50).matches(/^[a-z]+$/).required()
@@ -19,10 +20,17 @@ const Form = ({setFeedback}) => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       if(valid){
-        await saveMember(name);
-        setName("");
-        setValid(false);
-        setFeedback(true);
+        await saveMember(name)
+        .then(() => {
+          setName("");
+          setValid(false);
+          setFeedback(true);
+        })
+        .catch(err => {
+          console.log(err);
+          setError(true);
+        })
+ 
       }
       return null;
     };
@@ -35,6 +43,7 @@ const Form = ({setFeedback}) => {
             <input id="name" name="name" type="text" placeholder="Charalampos" onChange={e => handleInput(e)} value={name} />
             <button type="submit">Envoyer</button>
             {!valid && <div className="message-error"><p>3 à 50 lettres max, pas de caractères spéciaux.</p></div>}
+            {error && <div className="message-error"><p>Erreur lors du chargement des données</p></div>}
         </form>
         </>
     )
