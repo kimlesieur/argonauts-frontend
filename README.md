@@ -4,6 +4,8 @@ This project is a frontend made with React to perform CRUD operations on a Postg
 
 You can find the associated backend API on this repo :  [Argonauts Backend](https://github.com/kimlesieur/argonauts-backend)
 
+Online version available on Heroku : [https://jason-argonauts-front.herokuapp.com/](https://jason-argonauts-front.herokuapp.com/)
+
 ## How to run this project ? 
 
 To run the project, clone this repo and the [backend API](https://github.com/kimlesieur/argonauts-backend).  
