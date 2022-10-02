@@ -2,15 +2,15 @@
 
 This project is a frontend made with React to perform CRUD operations on a PostgreSQL database.
 
-You can find the associated backend API on this repo :  [Agronauts Backend](https://github.com/kimlesieur/argonauts-backend)
+You can find the associated backend API on this repo :  [Argonauts Backend](https://github.com/kimlesieur/argonauts-backend)
 
 ## How to run this project ? 
 
 To run the project, clone this repo and the [backend API](https://github.com/kimlesieur/argonauts-backend).
-    1. Install depedencies with `npm i`
-    2. Run both the backend and the frontend with `npm start`. 
-    3. Don't forget to customize your environment variables in the .env files !
-
+    1. Install depedencies with `npm i`  
+    2. Run both the backend and the frontend with `npm start`.  
+    3. Don't forget to customize your environment variables in the .env files !  
+    
 ## Dependencies
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

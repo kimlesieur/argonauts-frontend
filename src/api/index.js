@@ -1,19 +1,14 @@
 import {ENV} from '../config.js';
-import axios from 'axios';
 
 const apiUrl = ENV.PRODUCTION === "production" ? ENV.API_URL : ENV.TEST_URL;
 
 export const getList = async () => {
-    return await axios.get(apiUrl)
-    .then(response => response.data)
+    return await fetch(apiUrl)
+    .then(res => res.json())
     .catch(err => console.log(err));
 }
 
-
 export const saveMember = async (name) => {
-
-    //TODO : change for axios
-    
     return await fetch(apiUrl, {
         method: "POST",
         body: JSON.stringify({
@@ -23,7 +18,7 @@ export const saveMember = async (name) => {
             "Content-Type": "application/json",
         },
     })
-    .then(response => response.json());
+    .then(res => res.json());
 }
 
 
