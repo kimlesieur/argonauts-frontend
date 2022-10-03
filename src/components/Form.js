@@ -8,7 +8,7 @@ const Form = ({setFeedback}) => {
     const [error, setError] = useState(false);
 
     const validationSchema = Yup.object().shape({
-      name: Yup.string().min(2).max(50).matches(/^[A-Za-z\s]+$/).required()
+      name: Yup.string().min(2).max(50).matches(/^[A-Za-z\s\-]+$/).required()
     });
 
     const handleInput = async (e) => {
